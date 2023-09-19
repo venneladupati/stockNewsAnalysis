@@ -23,6 +23,7 @@ for ticker in tickers:
     html = BeautifulSoup(response,'html')
     newsTable = html.find(id='news-table')
     newsTables[ticker] = newsTable
+    break
 
 parsedData= []
 
@@ -54,14 +55,14 @@ for ticker, newsTable in newsTables.items():
 
     print(df)
 
-    '''plt.figure(figsize=(10,8))
+    plt.figure(figsize=(10,8))
 
     meanDf = df.groupby(['ticker', 'date']).mean(numeric_only=True)
     meanDf = meanDf.unstack()
     
     meanDf = meanDf.xs('compound', axis="columns").transpose()
     meanDf.plot(kind='bar')
-    plt.show()'''
+    plt.show()
     
 
 
